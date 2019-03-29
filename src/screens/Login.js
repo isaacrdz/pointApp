@@ -49,6 +49,10 @@ class Login extends Component {
     this.props.navigation.navigate("Signup");
   };
 
+  goToResetPassword = () => {
+    this.props.navigation.navigate("Reset");
+  };
+
   renderButton() {
     if (this.state.loading) {
       return <ActivityIndicator size="small" />;
@@ -97,15 +101,18 @@ class Login extends Component {
           </TouchableOpacity>
         }
 
-        <Text style={styles.textWhite}>
+        <Text style={[styles.textWhite, styles.mb20]}>
           Don't have an account?{" "}
           <Text
             title="Signup"
-            style={(styles.textWhite, styles.textBold)}
+            style={[styles.textWhite, styles.textBold]}
             onPress={this.goToSignup}
           >
             Sign up
           </Text>
+        </Text>
+        <Text style={styles.textWhite} onPress={this.goToResetPassword}>
+          Forgot your password?{" "}
         </Text>
       </View>
     );
