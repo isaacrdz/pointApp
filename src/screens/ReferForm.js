@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import styles from "../../styles";
-import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { referFriendEmail, getEmails } from "../actions/emailActions";
+import { connect } from "react-redux";
+import { PropTypes } from "prop-types";
+import { referFriendEmail } from "../actions/emailActions";
 import { Text, View, TextInput, Image, TouchableOpacity } from "react-native";
 import uuid from "uuid";
-import axios from "axios";
 
 class ReferForms extends Component {
-  componentDidMount() {
-    this.props.getEmails();
-  }
-
   state = {
     friendEmail: ""
   };
@@ -20,13 +16,14 @@ class ReferForms extends Component {
     const id = uuid.v4();
     const emailData = {
       id: id,
-      uid: this.props.user.uid,
-      username: this.props.user.username,
-      email: this.props.user.email,
+      uid: this.props.auth.uid,
+      username: this.props.auth.username,
+      email: this.props.auth.email,
       friendEmail: this.state.friendEmail
     };
     this.props.referFriendEmail(emailData);
     this.setState({ friendEmail: "" });
+    // console.log(emailData);
   };
 
   render() {
@@ -51,19 +48,18 @@ class ReferForms extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ referFriendEmail, getEmails }, dispatch);
+ReferForms.propTypes = {
+  // getUser: PropTypes.func.isRequired,
+  // auth: PropTypes.object.isRequired,
+  // login: PropTypes.func.isRequired,
+  referFriendEmail: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
-    email: state.email,
-    post: state.post,
-    user: state.user
-  };
-};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { referFriendEmail }
 )(ReferForms);

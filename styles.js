@@ -4,7 +4,7 @@ const { width } = Dimensions.get("window");
 export default (styles = StyleSheet.create({
   containerLogin: {
     flex: 1,
-    backgroundColor: "#34445d",
+    backgroundColor: "#c4172b",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -44,15 +44,15 @@ export default (styles = StyleSheet.create({
     marginTop: 20,
     paddingVertical: 10,
     alignItems: "center",
-    borderColor: "#44adff",
-    backgroundColor: "#44adff",
+    borderColor: "white",
+    backgroundColor: "white",
     borderWidth: 1,
     borderRadius: 5,
     width: 350,
     height: 50
   },
   buttonWhiteText: {
-    color: "#ffffff",
+    color: "#c4172b",
     fontSize: 20,
     textTransform: "uppercase"
   },

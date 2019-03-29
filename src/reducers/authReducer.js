@@ -1,10 +1,6 @@
 import { SIGNUP, CURRENT_USER, LOGIN } from "../actions/types";
 
-const initialState = {
-  isAutheticated: false,
-  user: {},
-  currentUser: []
-};
+const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {

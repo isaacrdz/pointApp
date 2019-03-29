@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-
 import {
   View,
   Text,
   Button,
   TextInput,
   TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
+  Image
 } from "react-native";
 import styles from "../../styles";
 import firebase from "firebase";
@@ -64,6 +64,13 @@ class Login extends Component {
   render() {
     return (
       <View style={styles.containerLogin}>
+        <Image
+          style={{ height: 200, width: 200 }}
+          source={{
+            uri:
+              "https://cdn.freebiesupply.com/logos/large/2x/kia-logo-black-and-white.png"
+          }}
+        />
         <TextInput
           style={styles.border}
           value={this.state.email}
@@ -81,12 +88,15 @@ class Login extends Component {
           autoCapitalize="none"
           placeholderTextColor="#d3d3d3"
         />
-        <TouchableOpacity
-          style={[styles.LoginButton, styles.mb20]}
-          onPress={this.loginUser}
-        >
-          <Text style={styles.buttonWhiteText}>Log in</Text>
-        </TouchableOpacity>
+        {
+          <TouchableOpacity
+            style={[styles.LoginButton, styles.mb20]}
+            onPress={this.loginUser}
+          >
+            <Text style={styles.buttonWhiteText}>Log in</Text>
+          </TouchableOpacity>
+        }
+
         <Text style={styles.textWhite}>
           Don't have an account?{" "}
           <Text

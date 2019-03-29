@@ -2,11 +2,13 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
-import HomeScreen from "../screens/Home";
+import HomeScreen from "../screens/Home/Containers/Home";
 import PostsScreen from "../screens/Posts";
 import PostScreen from "../screens/Post";
 import ReferScreen from "../screens/Refer";
 import ReferFormScreen from "../screens/ReferForm";
+import VehicleScreen from "../screens/Home/Containers/Vehicle";
+import ItemListScreen from "../screens/Home/Components/ItemList";
 
 export const HomeNavigator = createAppContainer(
   createStackNavigator({
@@ -14,6 +16,18 @@ export const HomeNavigator = createAppContainer(
       screen: HomeScreen,
       navigationOptions: {
         title: "Home"
+      }
+    },
+    Vehicle: {
+      screen: VehicleScreen,
+      navigationOptions: {
+        title: "Vehicle"
+      }
+    },
+    ItemList: {
+      screen: ItemListScreen,
+      navigationOptions: {
+        title: "Item List"
       }
     }
   })

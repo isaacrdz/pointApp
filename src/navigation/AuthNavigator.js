@@ -15,7 +15,7 @@ const StackNavigator = createStackNavigator({
     navigationOptions: {
       title: "Signup",
       headerStyle: {
-        backgroundColor: "#34445d",
+        backgroundColor: "#c4172b",
         elevation: 0,
         shadowOpacity: 0,
         shadowColor: "transparent"
