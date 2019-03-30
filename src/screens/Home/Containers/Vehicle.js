@@ -3,6 +3,15 @@ import { View, Text, Dimensions, Image, StyleSheet } from "react-native";
 import { withNavigation } from "react-navigation";
 
 class Vehicle extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const carTitle = `${navigation.getParam("make")} ${navigation.getParam(
+      "model"
+    )} ${navigation.getParam("year")}`;
+    return {
+      title: carTitle.toLocaleUpperCase()
+    };
+  };
+
   render() {
     const item = this.props.navigation.state.params;
 

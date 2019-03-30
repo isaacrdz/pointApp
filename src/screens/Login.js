@@ -92,14 +92,13 @@ class Login extends Component {
           autoCapitalize="none"
           placeholderTextColor="#d3d3d3"
         />
-        {
-          <TouchableOpacity
-            style={[styles.LoginButton, styles.mb20]}
-            onPress={this.loginUser}
-          >
-            <Text style={styles.buttonWhiteText}>Log in</Text>
-          </TouchableOpacity>
-        }
+
+        <TouchableOpacity
+          style={[styles.LoginButton, styles.mb20]}
+          onPress={this.loginUser}
+        >
+          <Text style={styles.buttonWhiteText}>Log in</Text>
+        </TouchableOpacity>
 
         <Text style={[styles.textWhite, styles.mb20]}>
           Don't have an account?{" "}

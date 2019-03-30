@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { getUser } from "../../../actions/authActions";
 import List from "../Components/List";
-
+import HorizontalCategory from "../Components/HorizontalCategory";
 class Home extends Component {
   state = {
     list: [
@@ -51,8 +51,6 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Logout" onPress={this.logoutUser} />
-
         <List list={this.state.list} />
       </View>
     );
