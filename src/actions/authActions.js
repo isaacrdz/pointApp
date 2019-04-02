@@ -1,6 +1,6 @@
 import firebase from "firebase";
 import db from "../config/firebase";
-import { SIGNUP, CURRENT_USER, LOGIN } from "./types";
+import { SIGNUP, CURRENT_USER, LOGIN, LOADING } from "./types";
 
 export const getUser = uid => {
   return async (dispatch, getState) => {
@@ -20,11 +20,13 @@ export const getUser = uid => {
 };
 
 export const login = data => async dispatch => {
+  dispatch(setLoading());
   try {
     const response = await firebase
       .auth()
       .signInWithEmailAndPassword(data.email, data.password);
     dispatch(getUser(response.user.uid));
+    dispatch({ type: LOGIN, payload: data });
   } catch (e) {
     alert(e);
   }
@@ -51,4 +53,11 @@ export const signup = data => async dispatch => {
   } catch (e) {
     alert(e);
   }
+};
+
+// Set loading state
+export const setLoading = () => {
+  return {
+    type: LOADING
+  };
 };

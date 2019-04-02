@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ActivityIndicator } from "react-native";
 
-function Spinner() {
+function Spinner({ size }) {
   return (
     <View style={styles.spinnerStyles}>
       <ActivityIndicator size={size || "large"} />

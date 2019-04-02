@@ -16,6 +16,7 @@ import { connect } from "react-redux";
 import { login, getUser } from "../actions/authActions";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Input } from "react-native-elements";
+import Spinner from "./Commons/Spinner";
 
 class Login extends Component {
   state = {
@@ -42,7 +43,7 @@ class Login extends Component {
     };
     this.props.login(loginData);
 
-    // console.log(loginData);
+    // console.log(this.props.auth.loading);
   };
 
   goToSignup = () => {
@@ -53,19 +54,21 @@ class Login extends Component {
     this.props.navigation.navigate("Reset");
   };
 
-  renderButton() {
-    if (this.state.loading) {
-      return <ActivityIndicator size="small" />;
-    }
-    return (
-      <Text title="Signup" style={styles.textWhite} onPress={this.goToSignup}>
-        {" "}
-        Sign up
-      </Text>
-    );
-  }
-
   render() {
+    let renderButton;
+
+    if (this.props.auth === null || this.props.auth.loading) {
+      renderButton = <Spinner size="small" />;
+    } else {
+      renderButton = (
+        <TouchableOpacity
+          style={[styles.LoginButton, styles.mb20]}
+          onPress={this.loginUser}
+        >
+          <Text style={styles.buttonWhiteText}>Log in</Text>
+        </TouchableOpacity>
+      );
+    }
     return (
       <View style={styles.containerLogin}>
         <Image
@@ -93,12 +96,7 @@ class Login extends Component {
           placeholderTextColor="#d3d3d3"
         />
 
-        <TouchableOpacity
-          style={[styles.LoginButton, styles.mb20]}
-          onPress={this.loginUser}
-        >
-          <Text style={styles.buttonWhiteText}>Log in</Text>
-        </TouchableOpacity>
+        {renderButton}
 
         <Text style={[styles.textWhite, styles.mb20]}>
           Don't have an account?{" "}

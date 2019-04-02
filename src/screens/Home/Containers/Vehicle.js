@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { View, Text, Dimensions, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Dimensions,
+  Image,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
 import SegmentedControlTab from "react-native-segmented-control-tab";
 
 class Vehicle extends Component {
@@ -27,7 +34,27 @@ class Vehicle extends Component {
 
     const { customStyleIndex } = this.state;
     return (
-      <View>
+      <View style={styles.container}>
+        <View>
+          <Image
+            style={styles.coverFront}
+            source={{
+              uri: item.front
+            }}
+          />
+
+          <View style={styles.container}>
+            <Text style={[styles.pricingText, styles.mb20]}>
+              Starting MSRP <Text style={{ fontWeight: "bold" }}>$17,450*</Text>{" "}
+            </Text>
+            <TouchableOpacity
+              style={[styles.quoteButton, styles.mb20]}
+              onPress={this.loginUser}
+            >
+              <Text style={styles.buttonWhiteText}>Get a Quote</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
         <SegmentedControlTab
           values={["OVERVIEW", "SPECS", "VERSIONS"]}
           selectedIndex={customStyleIndex}
@@ -72,6 +99,14 @@ class Vehicle extends Component {
 
 const { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
+  coverFront: {
+    height: 150,
+    width: 250,
+    resizeMode: "contain",
+    marginLeft: 5,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   cover: {
     height: 250,
     width: width
@@ -106,7 +141,9 @@ const styles = StyleSheet.create({
     color: "white"
   },
   pricingText: {
-    fontSize: 40
+    fontSize: 25,
+    alignItems: "center",
+    justifyContent: "center"
   },
   pricing: {
     flex: 1,
@@ -114,6 +151,27 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     color: "red"
+  },
+  container: {
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  mb20: {
+    marginBottom: 20
+  },
+  quoteButton: {
+    marginTop: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    alignItems: "center",
+    borderColor: "#c4172b",
+    backgroundColor: "#c4172b",
+    borderWidth: 1,
+    borderRadius: 5,
+    width: 180,
+    height: 40,
+    color: "white"
   }
 });
 export default Vehicle;

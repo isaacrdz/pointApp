@@ -1,11 +1,18 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import firebase from "firebase";
 
 class Profile extends Component {
+  logoutUser = () => {
+    firebase.auth().signOut();
+    this.props.navigation.navigate("Login");
+  };
   render() {
     return (
       <View>
-        <Text>Profile</Text>
+        <TouchableOpacity onPress={this.logoutUser}>
+          <Text>Logout</Text>
+        </TouchableOpacity>
       </View>
     );
   }

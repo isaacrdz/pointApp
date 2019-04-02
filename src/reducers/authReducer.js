@@ -1,11 +1,24 @@
-import { SIGNUP, CURRENT_USER, LOGIN } from "../actions/types";
+import { SIGNUP, CURRENT_USER, LOGIN, LOADING } from "../actions/types";
 
-const initialState = {};
+const initialState = {
+  loading: false,
+  currentUser: {}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case LOADING:
+      return {
+        ...state,
+        loading: true
+      };
     case LOGIN:
-      return action.payload;
+      return {
+        ...state,
+        currentUser: action.payload,
+        loading: false
+      };
+
     case SIGNUP:
       return {
         ...state,
@@ -19,6 +32,7 @@ export default (state = initialState, action) => {
         loading: false,
         isAutheticated: true
       };
+
     default:
       return state;
   }
