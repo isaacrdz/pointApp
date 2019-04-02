@@ -29,6 +29,10 @@ class Vehicle extends Component {
     };
   };
 
+  getAQuote = () => {
+    alert("TODO: Get a Qoute");
+  };
+
   render() {
     const item = this.props.navigation.state.params;
 
@@ -44,14 +48,14 @@ class Vehicle extends Component {
           />
 
           <View style={styles.container}>
-            <Text style={[styles.pricingText, styles.mb20]}>
+            <Text style={[styles.pricingText, styles.mb5]}>
               Starting MSRP <Text style={{ fontWeight: "bold" }}>$17,450*</Text>{" "}
             </Text>
             <TouchableOpacity
-              style={[styles.quoteButton, styles.mb20]}
-              onPress={this.loginUser}
+              style={[styles.quoteButton]}
+              onPress={this.getAQuote}
             >
-              <Text style={styles.buttonWhiteText}>Get a Quote</Text>
+              <Text style={[styles.buttonWhiteText]}>Get a Quote</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -87,7 +91,7 @@ class Vehicle extends Component {
           </View>
         )}
         {customStyleIndex === 1 && (
-          <Text style={styles.tabContent}> Tab Two</Text>
+          <Text style={styles.tabContent}> Tab two</Text>
         )}
         {customStyleIndex === 2 && (
           <Text style={styles.tabContent}> Tab Three</Text>
@@ -99,6 +103,10 @@ class Vehicle extends Component {
 
 const { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
+  buttonWhiteText: {
+    color: "white",
+    fontWeight: "bold"
+  },
   coverFront: {
     height: 150,
     width: 250,
@@ -160,8 +168,12 @@ const styles = StyleSheet.create({
   mb20: {
     marginBottom: 20
   },
+  mb5: {
+    marginBottom: 5
+  },
   quoteButton: {
-    marginTop: 20,
+    marginTop: 5,
+    marginBottom: 20,
     paddingVertical: 10,
     paddingHorizontal: 10,
     alignItems: "center",
@@ -169,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#c4172b",
     borderWidth: 1,
     borderRadius: 5,
-    width: 180,
+    width: 300,
     height: 40,
     color: "white"
   }
