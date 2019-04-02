@@ -18,13 +18,6 @@ function ItemList(props) {
   return (
     <View style={styles.container}>
       <View style={styles.left}>
-        <Image
-          style={styles.cover}
-          source={{
-            uri:
-              "https://www.leithcars.com/assets/shared/CustomHTMLFiles/Responsive/MRP/Kia/2019/Forte/images/2019-Kia-Forte-01.jpg"
-          }}
-        />
         <View style={styles.category}>
           <Text style={styles.categoryText}>{props.category}</Text>
         </View>
@@ -34,18 +27,15 @@ function ItemList(props) {
           </Text>
         </View>
       </View>
-      <Button title="Detail" onPress={this.goToCar} />
     </View>
   );
 }
 
-const { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
-  cover: {
-    height: 250,
-    width: width
+  container: {
+    flexDirection: "row"
   },
-  category: {
+  genre: {
     position: "absolute",
     left: 0,
     top: 0,
@@ -53,26 +43,37 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 7
   },
-  categoryText: {
+  genreText: {
     color: "white",
-    fontSize: 20
+    fontSize: 11
+  },
+  cover: {
+    height: 150,
+    width: 100,
+    resizeMode: "contain"
   },
   right: {
-    position: "absolute",
-    right: 0,
-    bottom: 0,
-    backgroundColor: "black",
-    paddingVertical: 5,
-    paddingHorizontal: 7
+    paddingLeft: 10,
+    justifyContent: "space-between"
   },
-  make: {
-    color: "white",
-    textTransform: "capitalize",
+  title: {
     fontSize: 18,
-    fontWeight: "bold"
+    color: "#44546b"
   },
-  model: {
-    color: "white"
+  year: {
+    backgroundColor: "#70b124",
+    paddingVertical: 4,
+    paddingHorizontal: 6,
+    color: "white",
+    fontSize: 11,
+    borderRadius: 5,
+    overflow: "hidden",
+    alignSelf: "flex-start"
+  },
+  rating: {
+    color: "#6b6b6b",
+    fontSize: 14,
+    fontWeight: "bold"
   }
 });
 

@@ -54,10 +54,14 @@ export const HomeNavigator = createAppContainer(
       })
     },
     Vehicle: {
-      screen: VehicleScreen
-      // navigationOptions: {
-      //   title: "Vehicle"
-      // }
+      screen: VehicleScreen,
+      navigationOptions: {
+        headerStyle: {
+          elevation: 0,
+          shadowOpacity: 0,
+          borderBottomWidth: 0
+        }
+      }
     },
     Profile: {
       screen: ProfileScreen,

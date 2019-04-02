@@ -32,28 +32,32 @@ class List extends Component {
           ListEmptyComponent={this.renderEmpty}
           ItemSeparatorComponent={this.itemSeparator}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.container}
-              onPress={() => this.props.navigation.navigate("Vehicle", item)}
-            >
+            <View style={styles.container}>
               <View style={styles.left}>
                 <Image
                   style={styles.cover}
                   source={{
-                    uri:
-                      "https://www.leithcars.com/assets/shared/CustomHTMLFiles/Responsive/MRP/Kia/2019/Forte/images/2019-Kia-Forte-01.jpg"
+                    uri: item.front
                   }}
                 />
-                <View style={styles.category}>
-                  <Text style={styles.categoryText}>{item.category}</Text>
-                </View>
-                <View style={styles.right}>
-                  <Text style={styles.make}>
-                    {item.make} {item.model} {item.year}
-                  </Text>
-                </View>
               </View>
-            </TouchableOpacity>
+              <View style={styles.right}>
+                <Text style={styles.carTitle}>
+                  {item.model} {item.year}
+                </Text>
+                <Text style={styles.pricing}>
+                  Starting <Text style={styles.pricingDigit}>$17,490</Text>
+                </Text>
+                <TouchableOpacity
+                  style={[styles.exploreButton, styles.mb20]}
+                  onPress={() =>
+                    this.props.navigation.navigate("Vehicle", item)
+                  }
+                >
+                  <Text style={styles.buttonWhiteText}>Explore</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           )}
         />
       </Layout>
@@ -61,13 +65,39 @@ class List extends Component {
   }
 }
 
-const { width } = Dimensions.get("window");
 const styles = StyleSheet.create({
-  cover: {
-    height: 250,
-    width: width
+  buttonWhiteText: {
+    color: "white"
   },
-  category: {
+  mb20: {
+    marginBottom: 20
+  },
+  exploreButton: {
+    marginTop: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    alignItems: "center",
+    borderColor: "#c4172b",
+    backgroundColor: "#c4172b",
+    borderWidth: 1,
+    borderRadius: 5,
+    width: 130,
+    height: 40
+  },
+  pricingDigit: {
+    fontSize: 18,
+    fontWeight: "bold"
+  },
+  carTitle: {
+    fontSize: 22,
+    textTransform: "capitalize",
+    marginTop: 15,
+    fontWeight: "bold"
+  },
+  container: {
+    flexDirection: "row"
+  },
+  genre: {
     position: "absolute",
     left: 0,
     top: 0,
@@ -75,26 +105,37 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 7
   },
-  categoryText: {
+  genreText: {
     color: "white",
-    fontSize: 20
+    fontSize: 11
+  },
+  cover: {
+    height: 210,
+    width: 210,
+    resizeMode: "contain",
+    marginLeft: 5
   },
   right: {
-    position: "absolute",
-    right: 0,
-    bottom: 0,
-    backgroundColor: "black",
-    paddingVertical: 5,
-    paddingHorizontal: 7
+    paddingLeft: 20
   },
-  make: {
-    color: "white",
-    textTransform: "capitalize",
+  title: {
     fontSize: 18,
-    fontWeight: "bold"
+    color: "#44546b"
   },
-  model: {
-    color: "white"
+  year: {
+    backgroundColor: "#70b124",
+    paddingVertical: 4,
+    paddingHorizontal: 6,
+    color: "white",
+    fontSize: 11,
+    borderRadius: 5,
+    overflow: "hidden",
+    alignSelf: "flex-start"
+  },
+  rating: {
+    color: "#6b6b6b",
+    fontSize: 14,
+    fontWeight: "bold"
   }
 });
 export default withNavigation(List);

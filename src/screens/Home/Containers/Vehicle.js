@@ -1,42 +1,70 @@
 import React, { Component } from "react";
 import { View, Text, Dimensions, Image, StyleSheet } from "react-native";
-import { withNavigation } from "react-navigation";
+import SegmentedControlTab from "react-native-segmented-control-tab";
 
 class Vehicle extends Component {
+  state = {
+    selectedIndex: 0,
+    selectedIndices: [0],
+    customStyleIndex: 0
+  };
+
+  handleCustomIndexSelect = index => {
+    this.setState(prevState => ({ ...prevState, customStyleIndex: index }));
+  };
+
   static navigationOptions = ({ navigation }) => {
-    const carTitle = `${navigation.getParam("make")} ${navigation.getParam(
-      "model"
-    )} ${navigation.getParam("year")}`;
+    const carTitle = ` ${navigation.getParam("model")} ${navigation.getParam(
+      "year"
+    )}`;
     return {
-      title: carTitle.toLocaleUpperCase()
+      title: carTitle.toUpperCase()
     };
   };
 
   render() {
     const item = this.props.navigation.state.params;
 
+    const { customStyleIndex } = this.state;
     return (
-      <View style={styles.container}>
-        <View style={styles.left}>
-          <Image
-            style={styles.cover}
-            source={{
-              uri:
-                "https://www.leithcars.com/assets/shared/CustomHTMLFiles/Responsive/MRP/Kia/2019/Forte/images/2019-Kia-Forte-01.jpg"
-            }}
-          />
-          <View style={styles.category}>
-            <Text style={styles.categoryText}>{item.category}</Text>
+      <View>
+        <SegmentedControlTab
+          values={["OVERVIEW", "SPECS", "VERSIONS"]}
+          selectedIndex={customStyleIndex}
+          onTabPress={this.handleCustomIndexSelect}
+          borderRadius={0}
+          tabsContainerStyle={{ height: 30, backgroundColor: "#F2F2F2" }}
+          tabStyle={{
+            backgroundColor: "white",
+            borderWidth: 0,
+            borderColor: "transparent"
+          }}
+          activeTabStyle={{
+            backgroundColor: "white",
+            marginTop: 2,
+            borderBottomColor: "#c4172b",
+            borderTopColor: "transparent",
+            borderWidth: 1
+          }}
+          tabTextStyle={{ color: "#444444" }}
+          activeTabTextStyle={{ color: "black" }}
+        />
+        {customStyleIndex === 0 && (
+          <View>
+            <Image
+              style={styles.cover}
+              source={{
+                uri: item.gallery
+              }}
+            />
           </View>
-          <View style={styles.right}>
-            <Text style={styles.make}>
-              {item.make} {item.model} {item.year}
-            </Text>
-          </View>
-        </View>
-        <View styles={styles.pricing}>
-          <Text styles={styles.pricingText}>Starting</Text>
-        </View>
+        )}
+        {customStyleIndex === 1 && (
+          <Text style={styles.tabContent}> Tab Two</Text>
+        )}
+        {customStyleIndex === 2 && (
+          <Text style={styles.tabContent}> Tab Three</Text>
+        )}
       </View>
     );
   }
