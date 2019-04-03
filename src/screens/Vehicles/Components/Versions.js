@@ -22,33 +22,42 @@ class Version extends Component {
         version: "lx",
         img:
           "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-LX.png",
-        security: "6 bolsas de aire",
-        wheels: "rines de aleación",
-        technology: "pantalla de audio",
-        camera: "cámara",
-        radio: "toma de usb"
+
+        features: [
+          "6 bolsas de aire",
+          "rines de aleación",
+          "pantalla de audio",
+          "camara",
+          "toma de usb"
+        ]
       },
       {
         id: 1,
         version: "lx",
         img:
           "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-LX.png",
-        security: "6 bolsas de aire",
-        wheels: "rines de aleación",
-        technology: "pantalla de audio",
-        camera: "cámara",
-        radio: "toma de usb"
+
+        features: [
+          "6 bolsas de aire",
+          "rines de aleación",
+          "pantalla de audio",
+          "camara",
+          "toma de usb"
+        ]
       },
       {
         id: 2,
         version: "lx",
         img:
           "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-LX.png",
-        security: "6 bolsas de aire",
-        wheels: "rines de aleación",
-        technology: "pantalla de audio",
-        camera: "cámara",
-        radio: "toma de usb"
+
+        features: [
+          "6 bolsas de aire",
+          "rines de aleación",
+          "pantalla de audio",
+          "camara",
+          "toma de usb"
+        ]
       }
     ]
   };
@@ -87,102 +96,23 @@ class Version extends Component {
                 }}
               />
             </View>
-            <Text style={{ marginLeft: 5 }}>
-              <Icon
-                style={{ marginRight: 17 }}
-                name="chevron-right"
-                type="font-awesome"
-                color="#c4172b"
-                size={17}
-              />
-              {"  "}
-              <Text
-                style={{
-                  marginLeft: 30,
-                  fontSize: 17,
-                  textTransform: "capitalize"
-                }}
-              >
-                {item.security}
-              </Text>
-            </Text>
-            <Text style={{ marginLeft: 5 }}>
-              <Icon
-                style={{ marginLeft: 17 }}
-                name="chevron-right"
-                type="font-awesome"
-                color="#c4172b"
-                size={17}
-              />
-              {"  "}
-              <Text
-                style={{
-                  marginLeft: 30,
-                  fontSize: 17,
-                  textTransform: "capitalize"
-                }}
-              >
-                {item.wheels}
-              </Text>
-            </Text>
-            <Text style={{ marginLeft: 5 }}>
-              <Icon
-                style={{ marginLeft: 17 }}
-                name="chevron-right"
-                type="font-awesome"
-                color="#c4172b"
-                size={17}
-              />
-              {"  "}
-              <Text
-                style={{
-                  marginLeft: 30,
-                  fontSize: 17,
-                  textTransform: "capitalize"
-                }}
-              >
-                {item.technology}
-              </Text>
-            </Text>
-            <Text style={{ marginLeft: 5 }}>
-              <Icon
-                style={{ marginLeft: 17 }}
-                name="chevron-right"
-                type="font-awesome"
-                color="#c4172b"
-                size={17}
-              />
-              {"  "}
-              <Text
-                style={{
-                  marginLeft: 30,
-                  fontSize: 17,
-                  textTransform: "capitalize"
-                }}
-              >
-                {item.camera}
-              </Text>
-            </Text>
-            <Text style={{ marginLeft: 5 }}>
-              <Icon
-                style={{ marginLeft: 17 }}
-                name="chevron-right"
-                type="font-awesome"
-                color="#c4172b"
-                size={17}
-              />
-              {"  "}
 
-              <Text
-                style={{
-                  marginLeft: 30,
-                  fontSize: 17,
-                  textTransform: "capitalize"
-                }}
-              >
-                {item.radio}
-              </Text>
-            </Text>
+            <View style={{ marginLeft: 10 }}>
+              {item.features.map((feature, i) => (
+                <Text key={i}>
+                  <Icon
+                    name="chevron-right"
+                    type="font-awesome"
+                    color="#c4172b"
+                    size={17}
+                  />
+                  {"   "}
+                  <Text style={{ fontSize: 17, textTransform: "capitalize" }}>
+                    {feature}
+                  </Text>
+                </Text>
+              ))}
+            </View>
           </ScrollView>
         )}
       />
