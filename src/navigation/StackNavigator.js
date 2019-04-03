@@ -129,10 +129,10 @@ export const VehiclesNavigator = createAppContainer(
       }
     },
     Vehicle: {
-      screen: VehicleScreen,
-      navigationOptions: {
-        title: "Item List"
-      }
+      screen: VehicleScreen
+      // navigationOptions: {
+      //   title: "Item List"
+      // }
     }
   })
 );

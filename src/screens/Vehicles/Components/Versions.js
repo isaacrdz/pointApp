@@ -56,7 +56,7 @@ class Version extends Component {
   renderItemList = ({ item }) => {
     return <Category {...item} />;
   };
-  renderEmpty = () => <Empty text="No hay elementos en la lista" />;
+  renderEmpty = () => <Empty text="No Vehicles found :(" />;
   itemSeparator = () => <Separator />;
   keyExtractor = item => item.id.toString();
   render() {
@@ -72,9 +72,10 @@ class Version extends Component {
             <View style={styles.container}>
               <Text
                 style={{
-                  fontSize: 20,
+                  fontSize: 17,
                   textTransform: "uppercase",
-                  marginTop: 15
+                  marginTop: 15,
+                  fontWeight: "bold"
                 }}
               >
                 {item.version}
@@ -94,10 +95,11 @@ class Version extends Component {
                 color="#c4172b"
                 size={17}
               />
+              {"  "}
               <Text
                 style={{
                   marginLeft: 30,
-                  fontSize: 20,
+                  fontSize: 17,
                   textTransform: "capitalize"
                 }}
               >
@@ -112,10 +114,11 @@ class Version extends Component {
                 color="#c4172b"
                 size={17}
               />
+              {"  "}
               <Text
                 style={{
                   marginLeft: 30,
-                  fontSize: 20,
+                  fontSize: 17,
                   textTransform: "capitalize"
                 }}
               >
@@ -130,10 +133,11 @@ class Version extends Component {
                 color="#c4172b"
                 size={17}
               />
+              {"  "}
               <Text
                 style={{
                   marginLeft: 30,
-                  fontSize: 20,
+                  fontSize: 17,
                   textTransform: "capitalize"
                 }}
               >
@@ -148,10 +152,11 @@ class Version extends Component {
                 color="#c4172b"
                 size={17}
               />
+              {"  "}
               <Text
                 style={{
                   marginLeft: 30,
-                  fontSize: 20,
+                  fontSize: 17,
                   textTransform: "capitalize"
                 }}
               >
@@ -166,11 +171,12 @@ class Version extends Component {
                 color="#c4172b"
                 size={17}
               />
+              {"  "}
 
               <Text
                 style={{
                   marginLeft: 30,
-                  fontSize: 20,
+                  fontSize: 17,
                   textTransform: "capitalize"
                 }}
               >
@@ -212,7 +218,7 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     color: "white",
-    fontSize: 20
+    fontSize: 17
   },
   right: {
     position: "absolute",

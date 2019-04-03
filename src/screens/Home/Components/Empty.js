@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 function Empty(props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{props.text}</Text>
+      <Text style={{ fontSize: 20 }}>{props.text}</Text>
     </View>
   );
 }
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   text: {
-    fontSize: 10
+    fontSize: 20
   }
 });
 export default Empty;
