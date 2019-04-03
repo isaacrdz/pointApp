@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
@@ -19,17 +19,7 @@ class Posts extends Component {
 
   render() {
     const { posts } = this.props.post;
-    return (
-      <ScrollView>
-        {posts.map((post, i) => (
-          <ListItem
-            key={i}
-            title={post.title}
-            onPress={() => this.handlePress(post)}
-          />
-        ))}
-      </ScrollView>
-    );
+    return <FlatList />;
   }
 }
 

@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import {
   HomeNavigator,
   PostsNavigator,
-  ReferNavigator
+  VehiclesNavigator
 } from "./StackNavigator";
 
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
@@ -20,21 +20,21 @@ const TabNavigator = createBottomTabNavigator({
       )
     }
   },
+  Vehicles: {
+    screen: VehiclesNavigator,
+    navigationOptions: {
+      tabBarLabel: "Vehicles",
+      tabBarIcon: () => (
+        <Icon name="car" type="font-awesome" color="#232323" size={28} />
+      )
+    }
+  },
   Posts: {
     screen: PostsNavigator,
     navigationOptions: {
       tabBarLabel: "Posts",
       tabBarIcon: () => (
         <Icon name="list" type="font-awesome" color="#232323" size={28} />
-      )
-    }
-  },
-  Refer: {
-    screen: ReferNavigator,
-    navigationOptions: {
-      tabBarLabel: "Refer a Friend",
-      tabBarIcon: () => (
-        <Icon name="heart" type="font-awesome" color="#232323" size={28} />
       )
     }
   }
