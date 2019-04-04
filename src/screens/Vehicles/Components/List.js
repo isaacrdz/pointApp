@@ -15,6 +15,12 @@ import Empty from "./Empty";
 import Separator from "./Separator";
 import { withNavigation } from "react-navigation";
 
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 0
+});
+
 class List extends Component {
   renderItemList = ({ item }) => {
     return <ItemList {...item} />;
@@ -46,7 +52,10 @@ class List extends Component {
                   {item.model} {item.year}
                 </Text>
                 <Text style={styles.pricing}>
-                  Starting <Text style={styles.pricingDigit}>$17,490</Text>
+                  Starting{" "}
+                  <Text style={styles.pricingDigit}>
+                    {formatter.format(item.price)}*
+                  </Text>
                 </Text>
                 <TouchableOpacity
                   style={[styles.exploreButton, styles.mb20]}
