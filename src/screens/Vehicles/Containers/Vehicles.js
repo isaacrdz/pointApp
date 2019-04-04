@@ -26,7 +26,51 @@ class Vehicles extends Component {
         doors: 4,
         feCity: 12,
         feHwy: 10,
-        feMixed: 11
+        feMixed: 11,
+        versions: [
+          {
+            id: 0,
+            version: "lx",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-LX.png",
+
+            features: [
+              "6 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          },
+          {
+            id: 1,
+            version: "ex",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Sou-EX.png",
+
+            features: [
+              "7 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          },
+          {
+            id: 2,
+            version: "ex pack",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-EX-Pack.png",
+
+            features: [
+              "8 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          }
+        ]
       },
       {
         id: 2,
@@ -45,7 +89,37 @@ class Vehicles extends Component {
         doors: 4,
         feCity: 12,
         feHwy: 10,
-        feMixed: 11
+        feMixed: 11,
+        versions: [
+          {
+            id: 0,
+            version: "lx",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/niro/2018_B/Trim_List/Componente-niro-lx.png",
+
+            features: [
+              "6 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          },
+          {
+            id: 1,
+            version: "ex",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/niro/2018_B/Trim_List/Componente-niro-ex.png",
+
+            features: [
+              "7 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          }
+        ]
       },
       {
         id: 3,
@@ -64,7 +138,65 @@ class Vehicles extends Component {
         doors: 4,
         feCity: 12,
         feHwy: 10,
-        feMixed: 11
+        feMixed: 11,
+        versions: [
+          {
+            id: 0,
+            version: "lx",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/new_sportage/2019/Componente-LX_PearlBlack.png",
+
+            features: [
+              "6 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          },
+          {
+            id: 1,
+            version: "ex",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/new_sportage/2019/Componente-EX_CoolSIlver.png",
+
+            features: [
+              "7 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          },
+          {
+            id: 2,
+            version: "ex pack",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/new_sportage/2019/Componente-EX_Pack_DarkGray.png",
+
+            features: [
+              "8 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          },
+          {
+            id: 3,
+            version: "sxl awd",
+            img:
+              "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/new_sportage/2019/Componente-SXL_AWD_SparkingSilver.png",
+
+            features: [
+              "8 bolsas de aire",
+              "rines de aleación",
+              "pantalla de audio",
+              "camara",
+              "toma de usb"
+            ]
+          }
+        ]
       }
     ]
   };

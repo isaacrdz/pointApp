@@ -15,56 +15,9 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { ListItem } from "react-native-elements";
 
 class Version extends Component {
-  state = {
-    versions: [
-      {
-        id: 0,
-        version: "lx",
-        img:
-          "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-LX.png",
-
-        features: [
-          "6 bolsas de aire",
-          "rines de aleación",
-          "pantalla de audio",
-          "camara",
-          "toma de usb"
-        ]
-      },
-      {
-        id: 1,
-        version: "lx",
-        img:
-          "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-LX.png",
-
-        features: [
-          "6 bolsas de aire",
-          "rines de aleación",
-          "pantalla de audio",
-          "camara",
-          "toma de usb"
-        ]
-      },
-      {
-        id: 2,
-        version: "lx",
-        img:
-          "https://www.kia.com/content/dam/kwcms/mx/es/images/showroom/soul_2020/Componente-Soul-LX.png",
-
-        features: [
-          "6 bolsas de aire",
-          "rines de aleación",
-          "pantalla de audio",
-          "camara",
-          "toma de usb"
-        ]
-      }
-    ]
-  };
-
-  renderItemList = ({ item }) => {
-    return <Category {...item} />;
-  };
+  // renderItemList = ({ item }) => {
+  //   return <Category {...item} />;
+  // };
   renderEmpty = () => <Empty text="No Vehicles found :(" />;
   itemSeparator = () => <Separator />;
   keyExtractor = item => item.id.toString();
@@ -73,7 +26,7 @@ class Version extends Component {
       <FlatList
         horizontal={true}
         keyExtractor={this.keyExtractor}
-        data={this.state.versions}
+        data={this.props.item.versions}
         ListEmptyComponent={this.renderEmpty}
         ItemSeparatorComponent={this.itemSeparator}
         renderItem={({ item }) => (

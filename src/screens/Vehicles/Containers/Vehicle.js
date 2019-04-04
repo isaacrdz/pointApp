@@ -12,6 +12,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import SegmentedControlTab from "react-native-segmented-control-tab";
 import Versions from "../Components/Versions";
 
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 0
+});
+
 class Vehicle extends Component {
   state = {
     selectedIndex: 0,
@@ -52,7 +58,11 @@ class Vehicle extends Component {
 
           <View style={styles.container}>
             <Text style={[styles.pricingText, styles.mb5]}>
-              Starting MSRP <Text style={{ fontWeight: "bold" }}>$17,450*</Text>{" "}
+              Starting MSRP{" "}
+              <Text style={{ fontWeight: "bold" }}>
+                {" "}
+                {formatter.format(item.price)}*
+              </Text>{" "}
             </Text>
             <TouchableOpacity
               style={[styles.quoteButton]}
@@ -96,7 +106,7 @@ class Vehicle extends Component {
         {customStyleIndex === 1 && (
           <Text style={styles.tabContent}> Tab two</Text>
         )}
-        {customStyleIndex === 2 && <Versions />}
+        {customStyleIndex === 2 && <Versions item={item} />}
       </View>
     );
   }
