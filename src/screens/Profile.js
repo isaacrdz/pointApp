@@ -14,12 +14,9 @@ import {
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { login, getUser } from "../actions/authActions";
-import { Icon } from "react-native-elements";
+import { Icon, Divider, Avatar } from "react-native-elements";
 
 class Profile extends Component {
-  componentDidMount() {
-    console.log(this.props.auth.currentUser.bio);
-  }
   logoutUser = () => {
     firebase.auth().signOut();
     this.props.navigation.navigate("Login");
@@ -28,24 +25,24 @@ class Profile extends Component {
     const { currentUser } = this.props.auth;
     return (
       <View>
-        <Image
-          style={styles.profileImage}
-          source={{
-            uri:
-              "https://d2x5ku95bkycr3.cloudfront.net/App_Themes/Common/images/profile/0_200.png"
-          }}
-        />
         <View style={styles.infoContainer}>
+          {/* <Avatar
+            size="xlarge"
+            rounded
+            source={{
+              uri: currentUser.profilePicture
+            }}
+            containerStyle={{ marginBottom: 30 }}
+          /> */}
           <Text style={styles.username}>{currentUser.username}</Text>
           <Text style={styles.bio}>{currentUser.bio}</Text>
 
           <View style={styles.emailContainer}>
             <Icon
-              inverse
+              size={17}
               name="envelope"
               type="font-awesome"
               color="#646364"
-              // onPress={() => console.log("hello")}
             />
             <Text style={styles.emailText}> {currentUser.email}</Text>
           </View>
@@ -63,7 +60,6 @@ const styles = StyleSheet.create({
     color: "#646364"
   },
   emailContainer: {
-    flex: 1,
     flexDirection: "row"
   },
   profileImage: {
@@ -88,11 +84,12 @@ const styles = StyleSheet.create({
   },
   bio: {
     color: "#646364",
-    marginBottom: 10
+    marginBottom: 20
   },
   infoContainer: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: 20
   },
   button: {
     marginTop: 20,

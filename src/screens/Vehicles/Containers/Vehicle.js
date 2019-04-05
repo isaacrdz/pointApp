@@ -7,10 +7,13 @@ import {
   StyleSheet,
   TouchableOpacity
 } from "react-native";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
 import Icon from "react-native-vector-icons/FontAwesome";
-
+import { quoteRequest } from "../../../actions/vehicleActions";
 import SegmentedControlTab from "react-native-segmented-control-tab";
 import Versions from "../Components/Versions";
+import uuid from "uuid";
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -39,7 +42,22 @@ class Vehicle extends Component {
   };
 
   getAQuote = () => {
-    alert("TODO: Get a Qoute");
+    const id = uuid.v4();
+    const { currentUser } = this.props.auth;
+    const { navigation } = this.props;
+    const quote = {
+      id: id,
+      uid: currentUser.uid,
+      user: currentUser.username,
+      email: currentUser.email,
+      make: navigation.getParam("make"),
+      model: navigation.getParam("model"),
+      year: navigation.getParam("year"),
+      message: `Request a quote from ${navigation.getParam(
+        "make"
+      )} ${navigation.getParam("model")}${" "}${navigation.getParam("year")}`
+    };
+    this.props.quoteRequest(quote);
   };
 
   render() {
@@ -197,4 +215,16 @@ const styles = StyleSheet.create({
     color: "white"
   }
 });
-export default Vehicle;
+Vehicle.propTypes = {
+  // getUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { quoteRequest }
+)(Vehicle);

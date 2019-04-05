@@ -2,12 +2,12 @@ import firebase from "firebase";
 require("firebase/firestore");
 
 const config = {
-  apiKey: "AIzaSyCOg-DYpSBeWn6aEuKnJHDEfm_PFrM9Hec",
-  authDomain: "pointtx-47f43.firebaseapp.com",
-  databaseURL: "https://pointtx-47f43.firebaseio.com",
-  projectId: "pointtx-47f43",
-  storageBucket: "pointtx-47f43.appspot.com",
-  messagingSenderId: "616932111417"
+  apiKey: "AIzaSyCerOtaP3ykkKGkUbLrdqgfMWTC9nvncFc",
+  authDomain: "ninjakiaapp.firebaseapp.com",
+  databaseURL: "https://ninjakiaapp.firebaseio.com",
+  projectId: "ninjakiaapp",
+  storageBucket: "ninjakiaapp.appspot.com",
+  messagingSenderId: "183894414403"
 };
 
 firebase.initializeApp(config);
